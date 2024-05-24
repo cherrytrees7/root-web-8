@@ -1,0 +1,26 @@
+server:
+  port: 3000
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/root-uet?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10MB  # 允许单个文件最大为10MB
+      max-request-size: 15MB  # 允许请求最大为15MB
+
+jwt:
+  tokenHeader: Authorization # JWT存储的请求头
+  secret: mySecret # JWT加解密使用的密钥
+  expiration: 2592000 # JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  # JWT负载中拿到开头
+
+minio:
+  endpoint: http://localhost:9000 # MinIO服务所在地址
+  bucketName: root # 存储桶名称
+  accessKey: admin # 访问的key
+  secretKey: admin123 # 访问的秘钥
+  readPath: http://localhost:9000
